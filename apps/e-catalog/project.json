@@ -1,0 +1,9 @@
+{
+  "name": "e-catalog",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/e-catalog/src",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project e-catalog --web",
+  "targets": {}
+}
