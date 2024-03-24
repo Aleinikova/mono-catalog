@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@mono-catalog/footer": ["libs/footer/src/index.ts"],
+      "@mono-catalog/header": ["libs/header/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

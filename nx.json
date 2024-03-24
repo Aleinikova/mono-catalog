@@ -10,7 +10,10 @@
       "!{projectRoot}/eslint.config.js",
       "!{projectRoot}/cypress/**/*",
       "!{projectRoot}/**/*.cy.[jt]s?(x)",
-      "!{projectRoot}/cypress.config.[jt]s"
+      "!{projectRoot}/cypress.config.[jt]s",
+      "!{projectRoot}/jest.config.[jt]s",
+      "!{projectRoot}/src/test-setup.[jt]s",
+      "!{projectRoot}/test-setup.[jt]s"
     ],
     "sharedGlobals": []
   },
@@ -37,22 +40,29 @@
         "targetName": "e2e",
         "componentTestingTargetName": "component-test"
       }
+    },
+    {
+      "plugin": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      }
     }
   ],
   "generators": {
     "@nx/react": {
       "application": {
         "babel": true,
-        "style": "css",
+        "style": "none",
         "linter": "eslint",
         "bundler": "vite"
       },
       "component": {
-        "style": "css"
+        "style": "none"
       },
       "library": {
-        "style": "css",
-        "linter": "eslint"
+        "style": "none",
+        "linter": "eslint",
+        "unitTestRunner": "jest"
       }
     }
   },

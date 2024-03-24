@@ -1,13 +1,19 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
+import { FluentProvider, webLightTheme } from '@fluentui/react-components';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Homepage from '../pages/Homepage';
 
-import NxWelcome from './nx-welcome';
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Homepage />,
+  },
+]);
 
 export function App() {
   return (
-    <div>
-      <NxWelcome title="e-catalog" />
-    </div>
+    <FluentProvider theme={webLightTheme} style={{ height: '100%' }}>
+      <RouterProvider router={router} />
+    </FluentProvider>
   );
 }
 
