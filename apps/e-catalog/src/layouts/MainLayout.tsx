@@ -9,6 +9,8 @@ const useStyles = makeStyles({
     height: '100%',
   },
   main: {
+    display: 'flex',
+    flexDirection: 'column',
     flexGrow: 1,
     ...shorthands.margin(tokens.spacingVerticalXXL),
   },
@@ -24,7 +26,7 @@ function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className={styles.root}>
       <Header logo="E-Catalog" />
-      <main className={styles.main}>{children}</main>
+      <div className={styles.main}>{children}</div>
       <Footer logo="E-Catalog" />
     </div>
   );
