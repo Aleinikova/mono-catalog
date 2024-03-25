@@ -4,7 +4,7 @@ import {
   typographyStyles,
   tokens,
 } from '@fluentui/react-components';
-import { ProductType } from '@mono-catalog/types';
+import { Action, ProductType } from '@mono-catalog/types';
 import { Product } from './product';
 
 const useStyles = makeStyles({
@@ -34,16 +34,17 @@ const useStyles = makeStyles({
 
 export interface ProductsProps {
   products: ProductType[];
+  actions: Action[];
 }
 
-export function Products({ products }: ProductsProps) {
+export function Products({ products, actions }: ProductsProps) {
   const styles = useStyles();
 
   return (
     <ul className={styles.list}>
       {products.map((product) => (
         <li className={styles.listItem} key={product.id}>
-          <Product product={product} />
+          <Product product={product} actions={actions} />
         </li>
       ))}
     </ul>

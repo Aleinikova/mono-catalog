@@ -2,6 +2,8 @@ import { Header } from '@mono-catalog/header';
 import { Footer } from '@mono-catalog/footer';
 import { makeStyles, shorthands, tokens } from '@fluentui/react-components';
 
+import AddProductButtonContainer from '../features/products/AddProductButtonContainer';
+
 const useStyles = makeStyles({
   root: {
     display: 'flex',
@@ -25,7 +27,9 @@ function MainLayout({ children }: MainLayoutProps) {
 
   return (
     <div className={styles.root}>
-      <Header logo="E-Catalog" />
+      <Header logo="E-Catalog">
+        <AddProductButtonContainer />
+      </Header>
       <div className={styles.main}>{children}</div>
       <Footer logo="E-Catalog" />
     </div>

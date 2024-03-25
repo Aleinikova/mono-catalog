@@ -7,13 +7,13 @@ import {
 import { CategoryType, StoreState } from '@mono-catalog/types';
 import { RootState } from '.';
 
-const categoriesAdapter = createEntityAdapter<CategoryType, number>({
+const categoriesAdapter = createEntityAdapter<CategoryType, string>({
   selectId: (category) => category.id,
 });
 
 export const getCategories = createAsyncThunk('categories/getAll', async () => {
   const response = await fetch('categories.json');
-  return (await response.json()) as CategoryType;
+  return await response.json();
 });
 
 export const categoriesSlice = createSlice({

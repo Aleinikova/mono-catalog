@@ -24,7 +24,12 @@ const useStyles = makeStyles({
     ...shorthands.gridArea(1, 1, 1, 4),
   },
   main: {
+    display: 'flex',
+    flexDirection: 'column',
     ...shorthands.gridArea(1, 4, 1, 13),
+  },
+  spinner: {
+    height: '100%',
   },
 });
 
@@ -43,7 +48,7 @@ function Homepage() {
 
   return (
     <MainLayout>
-      {isLoading && <Spinner />}
+      {isLoading && <Spinner className={styles.spinner} />}
       {!isLoading && (
         <div className={styles.root}>
           <Categories categories={categories} className={styles.categories} />

@@ -8,13 +8,13 @@ import { ProductType, StoreState } from '@mono-catalog/types';
 import { RootState } from '.';
 import { selectCategoryByName } from './categoriesStore';
 
-const productsAdapter = createEntityAdapter<ProductType, number>({
-  selectId: (Product) => Product.id,
+const productsAdapter = createEntityAdapter<ProductType, string>({
+  selectId: (product) => product.id,
 });
 
 export const getProducts = createAsyncThunk('products/getAll', async () => {
   const response = await fetch('products.json');
-  return (await response.json()) as ProductType;
+  return await response.json();
 });
 
 export const productsSlice = createSlice({
@@ -23,7 +23,9 @@ export const productsSlice = createSlice({
     status: 'idle' as StoreState,
   }),
   reducers: {
-    productAdded: productsAdapter.addOne,
+    Product: productsAdapter.addOne,
+    removeProduct: productsAdapter.removeOne,
+    updateProduct: productsAdapter.updateOne,
   },
   extraReducers: (builder) =>
     builder
@@ -59,3 +61,7 @@ export const selectProductsByCategoryName = createSelector(
     return state.filter((product) => product.categoryId === category.id);
   }
 );
+
+export const ProductAction = productsSlice.actions.Product;
+export const removeProductAction = productsSlice.actions.removeProduct;
+export const updateProductAction = productsSlice.actions.updateProduct;

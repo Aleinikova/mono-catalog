@@ -4,15 +4,15 @@ import Categories from './categories';
 
 const CATEGORIES = [
   {
-    id: 1,
+    id: '1',
     name: 'phone',
   },
   {
-    id: 2,
+    id: '2',
     name: 'tv',
   },
   {
-    id: 3,
+    id: '3',
     name: 'computer',
   },
 ];

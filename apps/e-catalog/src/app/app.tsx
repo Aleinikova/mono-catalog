@@ -5,7 +5,8 @@ import { Provider } from 'react-redux';
 import Homepage from '../pages/Homepage';
 import ProductsContainer from '../features/products';
 
-import { store } from '../store/index';
+import { persistor, store } from '../store/index';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const router = createBrowserRouter([
   {
@@ -23,9 +24,11 @@ const router = createBrowserRouter([
 export function App() {
   return (
     <Provider store={store}>
-      <FluentProvider theme={webLightTheme} style={{ height: '100%' }}>
-        <RouterProvider router={router} />
-      </FluentProvider>
+      <PersistGate loading={null} persistor={persistor}>
+        <FluentProvider theme={webLightTheme} style={{ height: '100%' }}>
+          <RouterProvider router={router} />
+        </FluentProvider>
+      </PersistGate>
     </Provider>
   );
 }
