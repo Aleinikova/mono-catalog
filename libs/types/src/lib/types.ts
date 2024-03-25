@@ -12,3 +12,5 @@ export type ProductType = {
   currency: string;
   inventory: number;
 };
+
+export type StoreState = 'idle' | 'loading' | 'succeeded' | 'failed';

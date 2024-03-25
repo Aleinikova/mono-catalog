@@ -41,8 +41,6 @@ function Homepage() {
 
   const isLoading = status === 'loading';
 
-  console.log(status, 'status');
-
   return (
     <MainLayout>
       {isLoading && <Spinner />}

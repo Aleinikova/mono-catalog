@@ -5,10 +5,14 @@ import {
   typographyStyles,
 } from '@fluentui/react-components';
 import { Products } from '@mono-catalog/products';
-import { ProductType } from '@mono-catalog/types';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { AppDispatch, RootState } from '../../store';
+import {
+  getProducts,
+  selectProductsByCategoryName,
+} from '../../store/productsStore';
 
 const useStyles = makeStyles({
   title: {
@@ -23,20 +27,14 @@ function ProductsContainer() {
 
   const { category } = useParams();
 
-  const [products, setProducts] = useState<ProductType[]>([]);
+  const dispatch: AppDispatch = useDispatch();
+  const products = useSelector((state: RootState) =>
+    selectProductsByCategoryName(state, category)
+  );
 
   useEffect(() => {
-    const getCategories = async () => {
-      try {
-        const response = await axios('products.json');
-
-        setProducts(response.data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    getCategories();
-  }, []);
+    dispatch(getProducts());
+  }, [dispatch]);
 
   return (
     <>

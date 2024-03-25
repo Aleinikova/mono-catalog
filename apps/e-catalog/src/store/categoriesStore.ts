@@ -2,13 +2,10 @@ import {
   createAsyncThunk,
   createEntityAdapter,
   createSlice,
-  PayloadAction,
   createSelector,
 } from '@reduxjs/toolkit';
-import { CategoryType } from '@mono-catalog/types';
+import { CategoryType, StoreState } from '@mono-catalog/types';
 import { RootState } from '.';
-
-type State = 'idle' | 'loading' | 'succeeded' | 'failed';
 
 const categoriesAdapter = createEntityAdapter<CategoryType, number>({
   selectId: (category) => category.id,
@@ -22,13 +19,10 @@ export const getCategories = createAsyncThunk('categories/getAll', async () => {
 export const categoriesSlice = createSlice({
   name: 'categories',
   initialState: categoriesAdapter.getInitialState({
-    status: 'idle' as State,
+    status: 'idle' as StoreState,
   }),
   reducers: {
-    bookAdded: categoriesAdapter.addOne,
-    booksReceived(state, action: PayloadAction<{ books: CategoryType[] }>) {
-      categoriesAdapter.setAll(state, action.payload.books);
-    },
+    categoryAdded: categoriesAdapter.addOne,
   },
   extraReducers: (builder) =>
     builder
@@ -55,4 +49,11 @@ export const {
 export const selectCategoriesStatus = createSelector(
   (state: RootState) => state,
   (state: RootState) => state.categories.status
+);
+
+export const selectCategoryByName = createSelector(
+  (state: RootState) => selectAllCategories(state),
+  (_, categoryName) => categoryName,
+  (state: CategoryType[], categoryName: string) =>
+    state.find((category) => category.name === categoryName)
 );
