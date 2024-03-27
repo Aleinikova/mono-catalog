@@ -11,7 +11,6 @@ export function useGenerateFile(template: string): {
   fileName?: string;
   isGenerated?: boolean;
 } {
-  const [isGenerated, setIsGenerated] = useState(false);
   const [iframeLink, setIframeLink] = useState<string | null>(null);
   const [resultFile, setResultFile] = useState<{
     fileName: string;
@@ -76,7 +75,7 @@ export function useGenerateFile(template: string): {
               fileName,
               blob,
             });
-            setIsGenerated(true);
+
             break;
           }
         }
@@ -95,6 +94,6 @@ export function useGenerateFile(template: string): {
     downloadFile,
     error,
     fileName: resultFile?.fileName,
-    isGenerated,
+    isGenerated: !!resultFile,
   };
 }

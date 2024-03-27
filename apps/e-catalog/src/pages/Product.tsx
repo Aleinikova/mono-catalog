@@ -127,7 +127,7 @@ function Product() {
     <Name>${product.name}</Name>
     <Price>${product.price} ${product.currency}</Price>
     <Inventory>${product.inventory}</Inventory>
-    <Description>${description?.join(';  ') || ''}</Description>
+    <Description>${description?.join(';  ') || '-'}</Description>
     `;
 
     const finalXML = `<CustomXmlPart xmlns="http://schemas.officeatwork.com/2024/product">${xmlContent}</CustomXmlPart>`;
