@@ -2,9 +2,6 @@ import {
   Dialog,
   makeStyles,
   Spinner,
-  Text,
-  tokens,
-  typographyStyles,
   useToastController,
   ToastTitle,
   Toast,
@@ -15,11 +12,11 @@ import { Products } from '@mono-catalog/products';
 import { ProductDialog } from '@mono-catalog/products';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { AppDispatch, RootState } from '../../store';
 import {
   getProducts,
   removeProductAction,
+  selectAllProducts,
   selectProductById,
   selectProductsByCategoryName,
   selectProductsStatus,
@@ -29,17 +26,16 @@ import { selectAllCategories } from '../../store/categoriesStore';
 import { ProductType } from '@mono-catalog/types';
 
 const useStyles = makeStyles({
-  title: {
-    display: 'block',
-    marginBottom: tokens.spacingVerticalXXL,
-    ...typographyStyles.largeTitle,
-  },
   spinner: {
     height: '100%',
   },
 });
 
-function ProductsContainer() {
+interface ProductsContainerProps {
+  category?: string;
+}
+
+function ProductsContainer({ category }: ProductsContainerProps) {
   const styles = useStyles();
 
   // TODO: remove copies of toaster
@@ -48,11 +44,11 @@ function ProductsContainer() {
 
   const [open, setOpen] = useState(false);
 
-  const { category } = useParams();
-
   const dispatch: AppDispatch = useDispatch();
   const products = useSelector((state: RootState) =>
-    selectProductsByCategoryName(state, category)
+    category
+      ? selectProductsByCategoryName(state, category)
+      : selectAllProducts(state)
   );
 
   const categories = useSelector((state: RootState) =>
@@ -107,9 +103,6 @@ function ProductsContainer() {
 
   return (
     <>
-      <Text as="h1" className={styles.title}>
-        {category}
-      </Text>
       {isLoading && <Spinner className={styles.spinner} />}
       {!isLoading && <Products products={products} actions={actions} />}
 

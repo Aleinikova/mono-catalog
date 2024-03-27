@@ -8,6 +8,7 @@ import {
 } from '@fluentui/react-components';
 import { Action, ProductType } from '@mono-catalog/types';
 import ProductMenu from './productMenu';
+import { currencyFormatter } from '@mono-catalog/currency-formatter';
 
 const useStyles = makeStyles({
   card: {},
@@ -52,10 +53,6 @@ export function Product({ product, actions }: ProductProps) {
   const styles = useStyles();
 
   // TODO: create util
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  });
 
   return (
     <Card className={styles.card}>
@@ -81,7 +78,7 @@ export function Product({ product, actions }: ProductProps) {
         <Text className={styles.availability}>({product.inventory})</Text>
       </div>
       <Text as="h2" className={styles.price}>
-        {formatter.format(+product.price)}
+        {currencyFormatter(+product.price, product.currency)}
       </Text>
     </Card>
   );

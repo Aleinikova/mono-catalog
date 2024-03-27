@@ -16,10 +16,12 @@
     "baseUrl": ".",
     "paths": {
       "@mono-catalog/categories": ["libs/categories/src/index.ts"],
+      "@mono-catalog/currency-formatter": ["libs/utils/src/index.ts"],
       "@mono-catalog/footer": ["libs/footer/src/index.ts"],
       "@mono-catalog/header": ["libs/header/src/index.ts"],
       "@mono-catalog/products": ["libs/products/src/index.ts"],
-      "@mono-catalog/types": ["libs/types/src/index.ts"]
+      "@mono-catalog/types": ["libs/types/src/index.ts"],
+      "@mono-catalog/useGenerateFile": ["libs/hooks/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

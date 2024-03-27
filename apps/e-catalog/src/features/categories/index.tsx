@@ -1,14 +1,13 @@
-import { Outlet } from 'react-router-dom';
 import { makeStyles, shorthands, Spinner } from '@fluentui/react-components';
 import { Categories } from '@mono-catalog/categories';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch } from '../store';
+import { AppDispatch } from '../../store';
 import {
   getCategories,
   selectAllCategories,
   selectCategoriesStatus,
-} from '../store/categoriesStore';
+} from '../../store/categoriesStore';
 
 const useStyles = makeStyles({
   root: {
@@ -49,12 +48,7 @@ function Homepage() {
     <>
       {isLoading && <Spinner className={styles.spinner} />}
       {!isLoading && (
-        <div className={styles.root}>
-          <Categories categories={categories} className={styles.categories} />
-          <main className={styles.main}>
-            <Outlet />
-          </main>
-        </div>
+        <Categories categories={categories} className={styles.categories} />
       )}
     </>
   );

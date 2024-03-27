@@ -1,5 +1,11 @@
 import { Outlet } from 'react-router-dom';
-import { makeStyles, shorthands, Spinner } from '@fluentui/react-components';
+import {
+  makeStyles,
+  shorthands,
+  Spinner,
+  tokens,
+  typographyStyles,
+} from '@fluentui/react-components';
 import { Categories } from '@mono-catalog/categories';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -30,9 +36,14 @@ const useStyles = makeStyles({
   spinner: {
     height: '100%',
   },
+  title: {
+    display: 'block',
+    marginBottom: tokens.spacingVerticalXXL,
+    ...typographyStyles.largeTitle,
+  },
 });
 
-function Homepage() {
+function ProductsLayout() {
   const styles = useStyles();
 
   const dispatch: AppDispatch = useDispatch();
@@ -45,14 +56,19 @@ function Homepage() {
 
   const isLoading = status === 'loading';
 
+
   return (
     <>
       {isLoading && <Spinner className={styles.spinner} />}
       {!isLoading && (
         <div className={styles.root}>
-          <Categories categories={categories} className={styles.categories} />
+          <Categories
+            categories={categories}
+            className={styles.categories}
+            linkFormatter={(link) => `/${link}`}
+          />
           <main className={styles.main}>
-            <Outlet />
+           <Outlet />
           </main>
         </div>
       )}
@@ -60,4 +76,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default ProductsLayout;

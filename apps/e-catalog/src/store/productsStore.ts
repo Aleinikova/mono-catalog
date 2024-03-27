@@ -58,10 +58,10 @@ export const selectProductsByCategoryName = createSelector(
   (state: RootState) => selectAllProducts(state),
   (state: RootState, categoryName) => selectCategoryByName(state, categoryName),
   (state: ProductType[], category) => {
-    return state.filter((product) => product.categoryId === category.id);
+    return state.filter((product) => product.categoryId === category?.id);
   }
 );
 
-export const ProductAction = productsSlice.actions.Product;
+export const addProductAction = productsSlice.actions.Product;
 export const removeProductAction = productsSlice.actions.removeProduct;
 export const updateProductAction = productsSlice.actions.updateProduct;

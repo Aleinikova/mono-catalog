@@ -1,5 +1,12 @@
-import { Outlet } from 'react-router-dom';
-import { makeStyles, shorthands, Spinner } from '@fluentui/react-components';
+import { useParams } from 'react-router-dom';
+import {
+  makeStyles,
+  shorthands,
+  Spinner,
+  Text,
+  tokens,
+  typographyStyles,
+} from '@fluentui/react-components';
 import { Categories } from '@mono-catalog/categories';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +16,7 @@ import {
   selectAllCategories,
   selectCategoriesStatus,
 } from '../store/categoriesStore';
+import ProductsContainer from '../features/products';
 
 const useStyles = makeStyles({
   root: {
@@ -30,6 +38,11 @@ const useStyles = makeStyles({
   spinner: {
     height: '100%',
   },
+  title: {
+    display: 'block',
+    marginBottom: tokens.spacingVerticalXXL,
+    ...typographyStyles.largeTitle,
+  },
 });
 
 function Homepage() {
@@ -45,14 +58,23 @@ function Homepage() {
 
   const isLoading = status === 'loading';
 
+  const { category } = useParams();
+
   return (
     <>
       {isLoading && <Spinner className={styles.spinner} />}
       {!isLoading && (
         <div className={styles.root}>
-          <Categories categories={categories} className={styles.categories} />
+          <Categories
+            categories={categories}
+            className={styles.categories}
+            linkFormatter={(link) => `/${link}`}
+          />
           <main className={styles.main}>
-            <Outlet />
+            <Text as="h1" className={styles.title}>
+              {category || 'All'}
+            </Text>
+            <ProductsContainer category={category} />
           </main>
         </div>
       )}

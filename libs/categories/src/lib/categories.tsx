@@ -48,9 +48,14 @@ const useStyles = makeStyles({
 export interface CategoriesProps {
   categories: CategoryType[];
   className?: string;
+  linkFormatter?: (link: string | number) => string;
 }
 
-export function Categories({ categories, className }: CategoriesProps) {
+export function Categories({
+  categories,
+  className,
+  linkFormatter,
+}: CategoriesProps) {
   const styles = useStyles();
 
   return (
@@ -59,7 +64,10 @@ export function Categories({ categories, className }: CategoriesProps) {
       <ul className={styles.list}>
         {categories.map((category) => (
           <li key={category.id} className={styles.listItem}>
-            <NavLink to={category.name} className={styles.link}>
+            <NavLink
+              to={linkFormatter ? linkFormatter(category.name) : category.name}
+              className={styles.link}
+            >
               {category.name}
             </NavLink>
           </li>

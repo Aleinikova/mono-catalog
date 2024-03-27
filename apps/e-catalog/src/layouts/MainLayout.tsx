@@ -3,6 +3,7 @@ import { Footer } from '@mono-catalog/footer';
 import { makeStyles, shorthands, tokens } from '@fluentui/react-components';
 
 import AddProductButtonContainer from '../features/products/AddProductButtonContainer';
+import { Outlet } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -19,7 +20,7 @@ const useStyles = makeStyles({
 });
 
 interface MainLayoutProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 function MainLayout({ children }: MainLayoutProps) {
@@ -30,7 +31,9 @@ function MainLayout({ children }: MainLayoutProps) {
       <Header logo="E-Catalog">
         <AddProductButtonContainer />
       </Header>
-      <div className={styles.main}>{children}</div>
+      <div className={styles.main}>
+        <Outlet />
+      </div>
       <Footer logo="E-Catalog" />
     </div>
   );

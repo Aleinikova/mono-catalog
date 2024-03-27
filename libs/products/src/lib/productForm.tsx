@@ -41,7 +41,6 @@ export function ProductForm({
 
   const {
     control,
-    register,
     handleSubmit,
     watch,
     reset,
@@ -73,6 +72,7 @@ export function ProductForm({
     await onSubmit({
       ...values,
       inventory: +values.inventory,
+      currency: 'USD',
     });
     reset();
   };
@@ -175,7 +175,7 @@ export function ProductForm({
         category.fields?.map((field) => (
           <ProductFormField
             {...field}
-            inputProps={{ ...register(field.name) }}
+            name={field.name}
             control={control}
             className={styles.field}
             key={field.name}

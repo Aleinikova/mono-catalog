@@ -6,6 +6,7 @@ import {
 } from '@fluentui/react-components';
 import { Action, ProductType } from '@mono-catalog/types';
 import { Product } from './product';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   card: {},
@@ -30,6 +31,9 @@ const useStyles = makeStyles({
     marginBottom: tokens.spacingVerticalXXL,
     ...typographyStyles.largeTitle,
   },
+  link: {
+    textDecorationLine: 'none',
+  },
 });
 
 export interface ProductsProps {
@@ -44,7 +48,9 @@ export function Products({ products, actions }: ProductsProps) {
     <ul className={styles.list}>
       {products.map((product) => (
         <li className={styles.listItem} key={product.id}>
-          <Product product={product} actions={actions} />
+          <Link className={styles.link} to={`${product.id}`}>
+            <Product product={product} actions={actions} />
+          </Link>
         </li>
       ))}
     </ul>

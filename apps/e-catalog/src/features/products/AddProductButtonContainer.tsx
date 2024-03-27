@@ -13,7 +13,7 @@ import { AddProductButton } from '@mono-catalog/products';
 
 import { selectAllCategories } from '../../store/categoriesStore';
 import { AppDispatch } from '../../store';
-import { ProductAction } from '../../store/productsStore';
+import { addProductAction } from '../../store/productsStore';
 
 interface ProductButtonContainerProps {
   children?: React.ReactNode;
@@ -30,7 +30,7 @@ function AddProductButtonContainer(props: ProductButtonContainerProps) {
 
   const onSubmit = (product: Omit<ProductType, 'id'>) => {
     dispatch(
-      ProductAction({
+      addProductAction({
         ...product,
         id: uuidv4(),
       } as ProductType)

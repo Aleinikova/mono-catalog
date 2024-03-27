@@ -4,6 +4,7 @@ import {
   tokens,
   typographyStyles,
 } from '@fluentui/react-components';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -15,6 +16,9 @@ const useStyles = makeStyles({
   logo: {
     ...typographyStyles.title3,
     color: tokens.colorCompoundBrandBackground,
+  },
+  link: {
+    textDecorationLine: 'none',
   },
 });
 
@@ -28,7 +32,9 @@ export function Header({ logo, children }: HeaderProps) {
 
   return (
     <header className={styles.root}>
-      <div className={styles.logo}>{logo}</div>
+      <Link className={styles.link} to="/">
+        <div className={styles.logo}>{logo}</div>
+      </Link>
       {children}
     </header>
   );
