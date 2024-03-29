@@ -1,28 +1,24 @@
-import { useRef } from 'react';
-import { useSelector } from 'react-redux';
-
 import {
   Button,
-  makeStyles,
-  shorthands,
   Spinner,
   Text,
+  makeStyles,
+  shorthands,
   tokens,
   typographyStyles,
 } from '@fluentui/react-components';
+import { currencyFormatter } from '@mono-catalog/currency-formatter';
+import { useGenerateFile } from '@mono-catalog/useGenerateFile';
+import { useRef } from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import { RootState } from '../store';
 import { selectCategoryById } from '../store/categoriesStore';
-import { useParams } from 'react-router-dom';
 import {
   selectProductById,
   selectProductsStatus,
 } from '../store/productsStore';
-import { currencyFormatter } from '@mono-catalog/currency-formatter';
-import { useGenerateFile } from '@mono-catalog/useGenerateFile';
-
-const TEMPLATE_BASE64 =
-  'VTJGc2RHVmtYMThxaWVSSWtpS29nRG5lWEFoWDl0dHFDdHVtSU40SXBTZWZPbkJVdTNzNlhFNlJyYnZUVU9UbjlDVjFpS0FRa3kzcjBUYzNTNmVGeG5DT2FHVjdHRi9KSk9KNThIYTFYeDNTb2czakpVM2EzM0pyVUZoSlFRY2dzZkNLRmhkZ0FSSGRscGlEVVNQQUpML2JxTTM1RHRPeWNERy9ML0dCM0dWTThpcDJ2Q1piS1Y0L091b29KeVdYT1JyUi8yeXQvSzYxdUxzRUtRY0VTS2hMUEIxeldMQ0xkb1N4dEVodmIrWU9lT0dST2hUTTlLdG00TG9aQnlxbzNYdVNERTdVL1RlbDFDL3g4VUhjSE00RWxMbVpDazNwNXJCTndvOXdGQlVkWkNkODNKaGVsU3ZLSWpkVGxOUjRjc05qSWUrOWFiTm43NDNvbWNLNWlLTCtQZEZOY1NsUG5GODIybFEvdWZXYmxUcVFLUzFZNXE0SmEzVHNHZzZEVEdKbkcvTUc1V0NsWUJoS3hnQ0Mrd2EvMGxLZ2gyWDBUK0paeGVLWjl4d0xncFYwRUVlTU5rRFlqRitJcEN4YnF4UlY3cmVwOHdvRng4RVpMMzNDZHFULzZHenk5UnR4dGVqWXdpRndGL0hJNi9JbTV6U2RLUnF5RWNDM2pNQklqVXdGZFlad1UrdnR6d1ovU2daWGxqR1B6MDUrOTM4WVBxcHBFWmkzUThtM2NMbjBQQmJzTkROV3FWKzZZN3oyd1VJTjZKcVNRM1BpdjhTa1NpM283VHh5dmp4Z2xGQWVCSk5oT0ZxSUxoeDNjdGVmdjF1aEJFaU1zK1dSNnJxMXlacUNLWjhVNkk5ZFFGVXNVSjNOTlBOakxXOU1QTzVvT24ySTAvRGRkYlRnYzBpcVFNOEJtY2M5T1l6SEFnODRKYkVQVzJUWGl6dVFqVFFJbEhkMHNNclY3UDV5Y0MyUG93TzRRSEhaQ0dxN0hsbmN6by9LK2h4UE1tMmZGZG1KaERpMHZ5VWlNbStPSkRIK1NGOVgxdlQ4NTR6ZlBKMlRGZERBSkUzNnBjS2d1Z2dWRWc3VndVNURoYlFCUlNPYytCeERlSlIzdDA0MXdwZXBmeUViZ014RzBDb1hIbklnMVJ3ZEQ0ZXJkRjJhQ0E4ZDlCZkpIL1AzYS8zSlBTYWxUNmVnVlptMTdLcExxMFVMZ3U4bFFkeCtVT0NEeFRpOURPbnJmRHZFTGszWkxoOUpqdUd2MWFVcWNDR0FlWTlWZkVmWUQ5MzIvcVdvZmhzM0oxL25nSWl0TGNSOXRiK2xGR0wxU1pDbEpMMD0';
 
 const useStyles = makeStyles({
   root: {
@@ -112,7 +108,8 @@ function Product() {
     downloadFile,
     fileName,
     isGenerated,
-  } = useGenerateFile(TEMPLATE_BASE64);
+    iframeKey,
+  } = useGenerateFile();
 
   const generateXML = () => {
     if (!product) {
@@ -120,7 +117,13 @@ function Product() {
     }
 
     const description = category?.fields?.map(
-      (filed) => `${filed.title}: ${product[filed.name] || '-'}`
+      (field) =>
+        `${field.title}: ${
+          field.type === 'select'
+            ? field.options?.find((option) => option.id === product[field.name])
+                ?.text
+            : product[field.name] || '-'
+        }`
     );
 
     const xmlContent = `
@@ -177,7 +180,11 @@ function Product() {
               <div className={styles.keyValueRow} key={field.name}>
                 <Text className={styles.key}>{field.title}:</Text>
                 <Text className={styles.value}>
-                  {product[field.name] || '-'}
+                  {field.type === 'select'
+                    ? field.options?.find(
+                        (option) => option.id === product[field.name]
+                      )?.text
+                    : product[field.name] || '-'}
                 </Text>
               </div>
             ))}
@@ -197,6 +204,7 @@ function Product() {
               className={styles.iframe}
               title="OfficeAtWorkTemplateChooser"
               src={iframeLink}
+              key={iframeKey}
             />
           )}
         </div>

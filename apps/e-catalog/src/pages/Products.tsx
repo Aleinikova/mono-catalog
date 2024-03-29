@@ -1,21 +1,13 @@
-import { useParams } from 'react-router-dom';
 import {
+  Text,
   makeStyles,
   shorthands,
-  Spinner,
-  Text,
   tokens,
   typographyStyles,
 } from '@fluentui/react-components';
-import { Categories } from '@mono-catalog/categories';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch } from '../store';
-import {
-  getCategories,
-  selectAllCategories,
-  selectCategoriesStatus,
-} from '../store/categoriesStore';
+import { useParams } from 'react-router-dom';
+
+import CategoriesContainer from '../features/categories';
 import ProductsContainer from '../features/products';
 
 const useStyles = makeStyles({
@@ -45,41 +37,24 @@ const useStyles = makeStyles({
   },
 });
 
-function Homepage() {
+function Products() {
   const styles = useStyles();
-
-  const dispatch: AppDispatch = useDispatch();
-  const categories = useSelector(selectAllCategories);
-  const status = useSelector(selectCategoriesStatus);
-
-  useEffect(() => {
-    dispatch(getCategories());
-  }, [dispatch]);
-
-  const isLoading = status === 'loading';
 
   const { category } = useParams();
 
   return (
-    <>
-      {isLoading && <Spinner className={styles.spinner} />}
-      {!isLoading && (
-        <div className={styles.root}>
-          <Categories
-            categories={categories}
-            className={styles.categories}
-            linkFormatter={(link) => `/${link}`}
-          />
-          <main className={styles.main}>
-            <Text as="h1" className={styles.title}>
-              {category || 'All'}
-            </Text>
-            <ProductsContainer category={category} />
-          </main>
-        </div>
+    <div className={styles.root}>
+      <CategoriesContainer className={styles.categories} />
+      {category && (
+        <main className={styles.main}>
+          <Text as="h1" className={styles.title}>
+            {category}
+          </Text>
+          <ProductsContainer category={category} />
+        </main>
       )}
-    </>
+    </div>
   );
 }
 
-export default Homepage;
+export default Products;

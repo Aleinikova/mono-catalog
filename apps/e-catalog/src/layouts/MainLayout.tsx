@@ -1,9 +1,9 @@
-import { Header } from '@mono-catalog/header';
-import { Footer } from '@mono-catalog/footer';
 import { makeStyles, shorthands, tokens } from '@fluentui/react-components';
+import { Footer } from '@mono-catalog/footer';
+import { Header } from '@mono-catalog/header';
+import { Outlet } from 'react-router-dom';
 
 import AddProductButtonContainer from '../features/products/AddProductButtonContainer';
-import { Outlet } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {

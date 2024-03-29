@@ -1,10 +1,11 @@
 import {
   Divider,
+  Text,
   makeStyles,
+  mergeClasses,
+  shorthands,
   tokens,
   typographyStyles,
-  Text,
-  shorthands,
 } from '@fluentui/react-components';
 
 const useStyles = makeStyles({
@@ -34,13 +35,14 @@ const useStyles = makeStyles({
 
 export interface FooterProps {
   logo: string;
+  className?: string;
 }
 
-export function Footer({ logo }: FooterProps) {
+export function Footer({ logo, className }: FooterProps) {
   const styles = useStyles();
 
   return (
-    <div className={styles.root}>
+    <div className={mergeClasses(styles.root, className)}>
       <Text className={styles.logo}>{logo}</Text>
       <Divider className={styles.divider} />
       <Text as="span" className={styles.caption}>

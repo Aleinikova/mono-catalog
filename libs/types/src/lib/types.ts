@@ -1,10 +1,11 @@
-export type CategoryType = {
+export type Category = {
   id: string;
   name: string;
   fields?: ProductField[];
+  title: string;
 };
 
-export interface ProductType {
+export interface Product {
   categoryId: string;
   id: string;
   name: string;

@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Categories should match snapshot 1`] = `
+[
+  <aside
+    className="___1k7ihmd_1tzfwtr f5ogflp f1hqa2wf f1f09k3d finvdd3 fzkkow9 fcdblym fg706s2 fjik90z fk9qgl1 f1vfbj5f fdf0ba2 f1qpacp7 f1ldthgs frrelxk fobrfso ffisxpw ffk54bq fjodcmx flw3t2g fhx4nu"
+  >
+    <span
+      className="fui-Text ___a92l640_1ics3gm fk6fouc f1pp30po f106mvju fl43uef fpgzoln f1w7gpdv f6juhto f1mtd64y f1y7q3j9 f2jf649"
+    >
+      Categories
+    </span>
+    <ul
+      className="___b9al950_0000000 ftrb29c fp2rrer f1vcna3q f1gj3jgi foyynoy fk6fouc fod5ikn figsok6 faaz57k"
+    >
+      <li
+        className="___1ovwwve_0000000 f1sil6mw f1aa9q02 f16jpd5f f1jar5jt fyu767a fq4dkim"
+        data-testid="category-1"
+      >
+        <a
+          className="___1rdc6rt_0000000 ftgm304 fly5x3f f1x4af0m fd55psn f1f5gg8d f1vdfbxk f1iuv45f f1ym3bx4 f1cmbuwj ft2vi0g"
+          href="/phone"
+          onClick={[Function]}
+        >
+          Phones
+        </a>
+      </li>
+      <li
+        className="___1ovwwve_0000000 f1sil6mw f1aa9q02 f16jpd5f f1jar5jt fyu767a fq4dkim"
+        data-testid="category-2"
+      >
+        <a
+          className="___1rdc6rt_0000000 ftgm304 fly5x3f f1x4af0m fd55psn f1f5gg8d f1vdfbxk f1iuv45f f1ym3bx4 f1cmbuwj ft2vi0g"
+          href="/tv"
+          onClick={[Function]}
+        >
+          TVs
+        </a>
+      </li>
+      <li
+        className="___1ovwwve_0000000 f1sil6mw f1aa9q02 f16jpd5f f1jar5jt fyu767a fq4dkim"
+        data-testid="category-3"
+      >
+        <a
+          className="___1rdc6rt_0000000 ftgm304 fly5x3f f1x4af0m fd55psn f1f5gg8d f1vdfbxk f1iuv45f f1ym3bx4 f1cmbuwj ft2vi0g"
+          href="/computer"
+          onClick={[Function]}
+        >
+          Computers
+        </a>
+      </li>
+    </ul>
+  </aside>,
+  ",",
+]
+`;

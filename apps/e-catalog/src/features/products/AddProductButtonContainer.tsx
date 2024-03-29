@@ -8,7 +8,7 @@ import {
   ToastTitle,
   Toaster,
 } from '@fluentui/react-components';
-import { ProductType } from '@mono-catalog/types';
+import { Product } from '@mono-catalog/types';
 import { AddProductButton } from '@mono-catalog/products';
 
 import { selectAllCategories } from '../../store/categoriesStore';
@@ -28,12 +28,12 @@ function AddProductButtonContainer(props: ProductButtonContainerProps) {
   // TODO: create custom dispatch
   const dispatch: AppDispatch = useDispatch();
 
-  const onSubmit = (product: Omit<ProductType, 'id'>) => {
+  const onSubmit = (product: Omit<Product, 'id'>) => {
     dispatch(
       addProductAction({
         ...product,
         id: uuidv4(),
-      } as ProductType)
+      } as Product)
     );
 
     dispatchToast(

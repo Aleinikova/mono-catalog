@@ -1,12 +1,12 @@
 import {
+  Text,
   makeStyles,
   mergeClasses,
   shorthands,
   tokens,
-  Text,
   typographyStyles,
 } from '@fluentui/react-components';
-import { CategoryType } from '@mono-catalog/types';
+import { Category } from '@mono-catalog/types';
 import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles({
@@ -46,7 +46,7 @@ const useStyles = makeStyles({
 });
 
 export interface CategoriesProps {
-  categories: CategoryType[];
+  categories: Category[];
   className?: string;
   linkFormatter?: (link: string | number) => string;
 }
@@ -63,12 +63,16 @@ export function Categories({
       <Text className={styles.title}>Categories</Text>
       <ul className={styles.list}>
         {categories.map((category) => (
-          <li key={category.id} className={styles.listItem}>
+          <li
+            key={category.id}
+            className={styles.listItem}
+            data-testid={`category-${category.id}`}
+          >
             <NavLink
               to={linkFormatter ? linkFormatter(category.name) : category.name}
               className={styles.link}
             >
-              {category.name}
+              {category.title}
             </NavLink>
           </li>
         ))}

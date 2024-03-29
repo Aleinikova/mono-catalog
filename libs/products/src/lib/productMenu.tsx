@@ -1,14 +1,14 @@
 import {
-  Menu,
-  MenuTrigger,
   Button,
-  MenuPopover,
-  MenuList,
+  Menu,
   MenuItem,
+  MenuList,
+  MenuPopover,
+  MenuTrigger,
 } from '@fluentui/react-components';
-
 import { MoreVerticalFilled } from '@fluentui/react-icons';
 import { Action } from '@mono-catalog/types';
+import { SyntheticEvent, useCallback } from 'react';
 
 interface ProductMenuProps {
   className: string;
@@ -21,10 +21,15 @@ export function ProductMenu({
   actions,
   productId,
 }: ProductMenuProps) {
+  const onTriggerButtonClick = useCallback((event: SyntheticEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+  }, []);
+
   return (
     <Menu>
-      <MenuTrigger>
-        <Button className={className}>
+      <MenuTrigger disableButtonEnhancement>
+        <Button className={className} onClick={onTriggerButtonClick}>
           <MoreVerticalFilled />
         </Button>
       </MenuTrigger>
@@ -34,7 +39,11 @@ export function ProductMenu({
           {actions.map((action) => (
             <MenuItem
               key={action.label}
-              onClick={() => action.onClick(productId)}
+              onClick={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                action.onClick(productId);
+              }}
             >
               {action.label}
             </MenuItem>

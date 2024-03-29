@@ -1,5 +1,6 @@
 import {
   makeStyles,
+  mergeClasses,
   shorthands,
   tokens,
   typographyStyles,
@@ -25,13 +26,14 @@ const useStyles = makeStyles({
 export interface HeaderProps {
   logo: string;
   children?: React.ReactNode;
+  className?: string;
 }
 
-export function Header({ logo, children }: HeaderProps) {
+export function Header({ logo, children, className }: HeaderProps) {
   const styles = useStyles();
 
   return (
-    <header className={styles.root}>
+    <header className={mergeClasses(styles.root, className)}>
       <Link className={styles.link} to="/">
         <div className={styles.logo}>{logo}</div>
       </Link>

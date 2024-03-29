@@ -1,16 +1,17 @@
 import {
   Button,
-  mergeClasses,
   Dialog,
   DialogTrigger,
+  mergeClasses,
 } from '@fluentui/react-components';
+import { Category, Product } from '@mono-catalog/types';
+
 import ProductDialog from './productDialog';
-import { CategoryType, ProductType } from '@mono-catalog/types';
 
 export interface ProductButtonProps {
   className?: string;
-  categories: CategoryType[];
-  onSubmit: (product: ProductType) => void;
+  categories: Category[];
+  onSubmit: (product: Product) => void;
 }
 
 export function AddProductButton({

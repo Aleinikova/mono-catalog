@@ -1,18 +1,22 @@
 import {
   Dialog,
-  makeStyles,
   Spinner,
-  useToastController,
-  ToastTitle,
   Toast,
-  useId,
+  ToastTitle,
   Toaster,
+  makeStyles,
+  useId,
+  useToastController,
 } from '@fluentui/react-components';
 import { Products } from '@mono-catalog/products';
 import { ProductDialog } from '@mono-catalog/products';
+import { Product } from '@mono-catalog/types';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import { AppDispatch, RootState } from '../../store';
+import { selectAllCategories } from '../../store/categoriesStore';
 import {
   getProducts,
   removeProductAction,
@@ -22,8 +26,6 @@ import {
   selectProductsStatus,
   updateProductAction,
 } from '../../store/productsStore';
-import { selectAllCategories } from '../../store/categoriesStore';
-import { ProductType } from '@mono-catalog/types';
 
 const useStyles = makeStyles({
   spinner: {
@@ -38,7 +40,7 @@ interface ProductsContainerProps {
 function ProductsContainer({ category }: ProductsContainerProps) {
   const styles = useStyles();
 
-  // TODO: remove copies of toaster
+  // TODO: better to implement with redux and have on component for rendering toasters
   const toasterId = useId('toaster');
   const { dispatchToast } = useToastController(toasterId);
 
@@ -84,7 +86,7 @@ function ProductsContainer({ category }: ProductsContainerProps) {
     { label: 'Delete', onClick: handleDeleteProduct },
   ];
 
-  const handleProductEdit = (product: ProductType) => {
+  const handleProductEdit = (product: Product) => {
     dispatch(
       updateProductAction({
         id: product.id,
@@ -92,7 +94,6 @@ function ProductsContainer({ category }: ProductsContainerProps) {
       })
     );
 
-    // TODO: rework
     dispatchToast(
       <Toast>
         <ToastTitle>Product is successfully edited</ToastTitle>
@@ -104,7 +105,9 @@ function ProductsContainer({ category }: ProductsContainerProps) {
   return (
     <>
       {isLoading && <Spinner className={styles.spinner} />}
-      {!isLoading && <Products products={products} actions={actions} />}
+      {!isLoading && (
+        <Products products={products} actions={actions} LinkComponent={Link} />
+      )}
 
       <Dialog open={open} onOpenChange={(_, data) => setOpen(data.open)}>
         <ProductDialog

@@ -1,15 +1,9 @@
-import {
-  makeStyles,
-  shorthands,
-  typographyStyles,
-  tokens,
-} from '@fluentui/react-components';
-import { Action, ProductType } from '@mono-catalog/types';
-import { Product } from './product';
-import { Link } from 'react-router-dom';
+import { makeStyles, mergeClasses } from '@fluentui/react-components';
+import { Action, Product } from '@mono-catalog/types';
+
+import { ProductCard } from './productCard';
 
 const useStyles = makeStyles({
-  card: {},
   list: {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
@@ -19,38 +13,43 @@ const useStyles = makeStyles({
   listItem: {
     listStyleType: 'none',
   },
-  preview: {
-    height: '200px',
-    ...shorthands.padding(tokens.spacingHorizontalM),
-  },
-  img: {
-    objectFit: 'contain',
-  },
-  title: {
-    display: 'block',
-    marginBottom: tokens.spacingVerticalXXL,
-    ...typographyStyles.largeTitle,
-  },
+
   link: {
     textDecorationLine: 'none',
   },
 });
 
 export interface ProductsProps {
-  products: ProductType[];
+  products: Product[];
   actions: Action[];
+  LinkComponent?: JSX.ElementType;
+  className?: string;
 }
 
-export function Products({ products, actions }: ProductsProps) {
+export function Products({
+  products,
+  actions,
+  LinkComponent,
+  className,
+}: ProductsProps) {
   const styles = useStyles();
 
   return (
-    <ul className={styles.list}>
+    <ul className={mergeClasses(styles.list, className)}>
       {products.map((product) => (
         <li className={styles.listItem} key={product.id}>
-          <Link className={styles.link} to={`${product.id}`}>
-            <Product product={product} actions={actions} />
-          </Link>
+          {LinkComponent && (
+            <LinkComponent
+              className={styles.link}
+              to={`${product.id}`}
+              href={`${product.id}`}
+            >
+              <ProductCard product={product} actions={actions} />
+            </LinkComponent>
+          )}
+          {!LinkComponent && (
+            <ProductCard product={product} actions={actions} />
+          )}
         </li>
       ))}
     </ul>

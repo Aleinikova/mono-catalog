@@ -1,14 +1,16 @@
 import {
-  makeStyles,
   Card,
   CardPreview,
   Text,
-  typographyStyles,
+  makeStyles,
+  mergeClasses,
   tokens,
+  typographyStyles,
 } from '@fluentui/react-components';
-import { Action, ProductType } from '@mono-catalog/types';
-import ProductMenu from './productMenu';
 import { currencyFormatter } from '@mono-catalog/currency-formatter';
+import { Action, Product } from '@mono-catalog/types';
+
+import ProductMenu from './productMenu';
 
 const useStyles = makeStyles({
   card: {},
@@ -45,17 +47,19 @@ const useStyles = makeStyles({
 });
 
 export interface ProductProps {
-  product: ProductType;
+  product: Product;
   actions: Action[];
+  className?: string;
 }
 
-export function Product({ product, actions }: ProductProps) {
+export function ProductCard({ product, actions, className }: ProductProps) {
   const styles = useStyles();
 
-  // TODO: create util
-
   return (
-    <Card className={styles.card}>
+    <Card
+      className={mergeClasses(styles.card, className)}
+      data-testid={`product-${product.id}`}
+    >
       <ProductMenu
         className={styles.menu}
         actions={actions}
@@ -84,4 +88,4 @@ export function Product({ product, actions }: ProductProps) {
   );
 }
 
-export default Product;
+export default ProductCard;

@@ -1,0 +1,221 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Products should match snapshot 1`] = `
+<ul
+  className="___33n3ue0_62vbad0 f13qh94s fakch2i f19ib82q fpv4h6z"
+>
+  <li
+    className="___l2809y0_0000000 ftrb29c"
+  >
+    <div
+      className="fui-Card ___svmuv00_ds8hu60 f1p9o1ba f1sil6mw fifeqxg f899z7z f4h3tyx f18ur2pz f1lplnzb f10m5gbb fhftqfp f1k04kkk fxsr4vj fcvsdzp f22iagw f10pi13n f1ewtqcl f19n0e5 f1mdlcz9 frwkxtg f1n6gb5g f15yvnhg fo72kxq f13zj6fq f1nwj1ja f8rth92 flthirb f1lh990p ftkbnf5 f6czdpx f13hvwk3 f1i1u9k0 f1en4csx f1qnomq5 f2fl922 f1anhtl f1n2zcl3 f16v3d5c f1vx9l62 fobhde4 fx5r7kn f19chtn8 fuvs6re fy4glsf frsmuga fuldkky fxugw4r f1whvlc6 f16gxe2i fpgykix f1osi826 fzybk4o ftqa4ok f2hkw1w f8hki3x f1d2448m f1bjia2o ffh67wi f226i61 f13kzufm flujwa2 fsx75g8 f15bsgw9 f14e48fq f18yb2kv fd6o370 fh1cnn4 fy7oxxb fpukqih f184ne2d f99gebs f13b0oaq f1jvq617 f8t2bz6 f11unbnk fbd201q f12nqxso f1uguk4w f1dvezut fd0oaoj fjvm52t f1cwg4i8 f15fr7a0 fwsq40z f34ld9f fy0y4wt"
+      data-testid="product-1"
+      role="group"
+    >
+      <button
+        aria-haspopup="menu"
+        className="fui-Button r1alrhcs ___aet0oh0_571hc70 fcgxt0o f17fgpbq fq4mcun f1cnd47f fhxju0i"
+        data-tabster="{"restorer":{"type":1}}"
+        id="menur0"
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseMove={[Function]}
+        role="button"
+        tabIndex={0}
+        type="button"
+      >
+        <svg
+          aria-hidden={true}
+          className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 20 20"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 6.5A1.75 1.75 0 1 1 10 3a1.75 1.75 0 0 1 0 3.5ZM10 17a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5Zm-1.75-7a1.75 1.75 0 1 0 3.5 0 1.75 1.75 0 0 0-3.5 0Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <div
+        className="fui-CardPreview ___1hkdc12_193a1gh f10pi13n f1rzl30s f1chxnfo f17xb19f fecqxwr"
+      >
+        <img
+          alt="Preview of a Word document: About Us - Overview"
+          className="___1we4501_0000000 f1kle4es"
+          src="https://www.freeiconspng.com/thumbs/iphone-x-pictures/apple-iphone-x-pictures-5.png"
+        />
+      </div>
+      <div
+        className="___1400c38_0000000 f22iagw f1869bpl fly5x3f"
+      >
+        <h2
+          className="fui-Text ___c8i2lc0_1wzyky6 fk6fouc fod5ikn faaz57k fl43uef fpgzoln f1w7gpdv f6juhto f1mtd64y f1y7q3j9 f2jf649 fqcjy3b"
+        >
+          iPhoneX
+        </h2>
+        <span
+          className="fui-Text ___nzdt000_ag2scu0 fk6fouc fkhj508 f1i3iumi figsok6 fpgzoln f1w7gpdv f6juhto f1mtd64y f1y7q3j9 f2jf649"
+        >
+          (
+          10
+          )
+        </span>
+      </div>
+      <h2
+        className="fui-Text ___r9uoz30_1njyo59 fk6fouc fod5ikn faaz57k fl43uef f17mccla ftgm304 f6juhto f1mtd64y f1y7q3j9 f2jf649"
+      >
+        $1,000.00
+      </h2>
+    </div>
+  </li>
+  <li
+    className="___l2809y0_0000000 ftrb29c"
+  >
+    <div
+      className="fui-Card ___svmuv00_ds8hu60 f1p9o1ba f1sil6mw fifeqxg f899z7z f4h3tyx f18ur2pz f1lplnzb f10m5gbb fhftqfp f1k04kkk fxsr4vj fcvsdzp f22iagw f10pi13n f1ewtqcl f19n0e5 f1mdlcz9 frwkxtg f1n6gb5g f15yvnhg fo72kxq f13zj6fq f1nwj1ja f8rth92 flthirb f1lh990p ftkbnf5 f6czdpx f13hvwk3 f1i1u9k0 f1en4csx f1qnomq5 f2fl922 f1anhtl f1n2zcl3 f16v3d5c f1vx9l62 fobhde4 fx5r7kn f19chtn8 fuvs6re fy4glsf frsmuga fuldkky fxugw4r f1whvlc6 f16gxe2i fpgykix f1osi826 fzybk4o ftqa4ok f2hkw1w f8hki3x f1d2448m f1bjia2o ffh67wi f226i61 f13kzufm flujwa2 fsx75g8 f15bsgw9 f14e48fq f18yb2kv fd6o370 fh1cnn4 fy7oxxb fpukqih f184ne2d f99gebs f13b0oaq f1jvq617 f8t2bz6 f11unbnk fbd201q f12nqxso f1uguk4w f1dvezut fd0oaoj fjvm52t f1cwg4i8 f15fr7a0 fwsq40z f34ld9f fy0y4wt"
+      data-testid="product-2"
+      role="group"
+    >
+      <button
+        aria-haspopup="menu"
+        className="fui-Button r1alrhcs ___aet0oh0_571hc70 fcgxt0o f17fgpbq fq4mcun f1cnd47f fhxju0i"
+        data-tabster="{"restorer":{"type":1}}"
+        id="menur1"
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseMove={[Function]}
+        role="button"
+        tabIndex={0}
+        type="button"
+      >
+        <svg
+          aria-hidden={true}
+          className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 20 20"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 6.5A1.75 1.75 0 1 1 10 3a1.75 1.75 0 0 1 0 3.5ZM10 17a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5Zm-1.75-7a1.75 1.75 0 1 0 3.5 0 1.75 1.75 0 0 0-3.5 0Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <div
+        className="fui-CardPreview ___1hkdc12_193a1gh f10pi13n f1rzl30s f1chxnfo f17xb19f fecqxwr"
+      >
+        <img
+          alt="Preview of a Word document: About Us - Overview"
+          className="___1we4501_0000000 f1kle4es"
+          src="https://images.samsung.com/is/image/samsung/latin-en-uhdtv-nu7100-un50nu7100pxpa-frontblack-121432508?$650_519_PNG$"
+        />
+      </div>
+      <div
+        className="___1400c38_0000000 f22iagw f1869bpl fly5x3f"
+      >
+        <h2
+          className="fui-Text ___c8i2lc0_1wzyky6 fk6fouc fod5ikn faaz57k fl43uef fpgzoln f1w7gpdv f6juhto f1mtd64y f1y7q3j9 f2jf649 fqcjy3b"
+        >
+          Samsung
+        </h2>
+        <span
+          className="fui-Text ___nzdt000_ag2scu0 fk6fouc fkhj508 f1i3iumi figsok6 fpgzoln f1w7gpdv f6juhto f1mtd64y f1y7q3j9 f2jf649"
+        >
+          (
+          10
+          )
+        </span>
+      </div>
+      <h2
+        className="fui-Text ___r9uoz30_1njyo59 fk6fouc fod5ikn faaz57k fl43uef f17mccla ftgm304 f6juhto f1mtd64y f1y7q3j9 f2jf649"
+      >
+        $1,000.00
+      </h2>
+    </div>
+  </li>
+  <li
+    className="___l2809y0_0000000 ftrb29c"
+  >
+    <div
+      className="fui-Card ___svmuv00_ds8hu60 f1p9o1ba f1sil6mw fifeqxg f899z7z f4h3tyx f18ur2pz f1lplnzb f10m5gbb fhftqfp f1k04kkk fxsr4vj fcvsdzp f22iagw f10pi13n f1ewtqcl f19n0e5 f1mdlcz9 frwkxtg f1n6gb5g f15yvnhg fo72kxq f13zj6fq f1nwj1ja f8rth92 flthirb f1lh990p ftkbnf5 f6czdpx f13hvwk3 f1i1u9k0 f1en4csx f1qnomq5 f2fl922 f1anhtl f1n2zcl3 f16v3d5c f1vx9l62 fobhde4 fx5r7kn f19chtn8 fuvs6re fy4glsf frsmuga fuldkky fxugw4r f1whvlc6 f16gxe2i fpgykix f1osi826 fzybk4o ftqa4ok f2hkw1w f8hki3x f1d2448m f1bjia2o ffh67wi f226i61 f13kzufm flujwa2 fsx75g8 f15bsgw9 f14e48fq f18yb2kv fd6o370 fh1cnn4 fy7oxxb fpukqih f184ne2d f99gebs f13b0oaq f1jvq617 f8t2bz6 f11unbnk fbd201q f12nqxso f1uguk4w f1dvezut fd0oaoj fjvm52t f1cwg4i8 f15fr7a0 fwsq40z f34ld9f fy0y4wt"
+      data-testid="product-3"
+      role="group"
+    >
+      <button
+        aria-haspopup="menu"
+        className="fui-Button r1alrhcs ___aet0oh0_571hc70 fcgxt0o f17fgpbq fq4mcun f1cnd47f fhxju0i"
+        data-tabster="{"restorer":{"type":1}}"
+        id="menur2"
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseMove={[Function]}
+        role="button"
+        tabIndex={0}
+        type="button"
+      >
+        <svg
+          aria-hidden={true}
+          className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 20 20"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 6.5A1.75 1.75 0 1 1 10 3a1.75 1.75 0 0 1 0 3.5ZM10 17a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5Zm-1.75-7a1.75 1.75 0 1 0 3.5 0 1.75 1.75 0 0 0-3.5 0Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <div
+        className="fui-CardPreview ___1hkdc12_193a1gh f10pi13n f1rzl30s f1chxnfo f17xb19f fecqxwr"
+      >
+        <img
+          alt="Preview of a Word document: About Us - Overview"
+          className="___1we4501_0000000 f1kle4es"
+          src="https://i.pinimg.com/originals/3e/7b/90/3e7b90192ec52d66d07dd209e3373985.png"
+        />
+      </div>
+      <div
+        className="___1400c38_0000000 f22iagw f1869bpl fly5x3f"
+      >
+        <h2
+          className="fui-Text ___c8i2lc0_1wzyky6 fk6fouc fod5ikn faaz57k fl43uef fpgzoln f1w7gpdv f6juhto f1mtd64y f1y7q3j9 f2jf649 fqcjy3b"
+        >
+          Dell
+        </h2>
+        <span
+          className="fui-Text ___nzdt000_ag2scu0 fk6fouc fkhj508 f1i3iumi figsok6 fpgzoln f1w7gpdv f6juhto f1mtd64y f1y7q3j9 f2jf649"
+        >
+          (
+          10
+          )
+        </span>
+      </div>
+      <h2
+        className="fui-Text ___r9uoz30_1njyo59 fk6fouc fod5ikn faaz57k fl43uef f17mccla ftgm304 f6juhto f1mtd64y f1y7q3j9 f2jf649"
+      >
+        $1,000.00
+      </h2>
+    </div>
+  </li>
+</ul>
+`;

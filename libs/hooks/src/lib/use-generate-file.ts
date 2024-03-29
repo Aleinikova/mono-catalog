@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react';
 const TEMPLATE_CHOOSER_LINK =
   'https://template-chooser-embedded.officeatwork.com';
 
-export function useGenerateFile(template: string): {
+export function useGenerateFile(): {
   iframeLink: string | null;
   downloadFile: () => void;
   generateIframeLink: (customXmlPart: string) => void;
   error: string | null;
+  iframeKey: string;
   fileName?: string;
   isGenerated?: boolean;
 } {
@@ -17,10 +18,11 @@ export function useGenerateFile(template: string): {
     blob: Blob;
   } | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [iframeKey, setIframeKey] = useState(() => Date.now().toString());
 
   const generateIframeLink = (customXmlPart: string) => {
     setResultFile(null);
-    setIframeLink(null);
+    setIframeKey(Date.now().toString());
 
     const xmlBAse64 = window.btoa(
       JSON.stringify([
@@ -31,9 +33,7 @@ export function useGenerateFile(template: string): {
       ])
     );
 
-    setIframeLink(
-      `${TEMPLATE_CHOOSER_LINK}/#template=${template}&inject=${xmlBAse64}`
-    );
+    setIframeLink(`${TEMPLATE_CHOOSER_LINK}/#inject=${xmlBAse64}`);
   };
 
   const downloadFile = () => {
@@ -90,6 +90,7 @@ export function useGenerateFile(template: string): {
 
   return {
     iframeLink,
+    iframeKey,
     generateIframeLink,
     downloadFile,
     error,

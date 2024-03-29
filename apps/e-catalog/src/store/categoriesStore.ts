@@ -1,13 +1,14 @@
+import { Category, StoreState } from '@mono-catalog/types';
 import {
   createAsyncThunk,
   createEntityAdapter,
-  createSlice,
   createSelector,
+  createSlice,
 } from '@reduxjs/toolkit';
-import { CategoryType, StoreState } from '@mono-catalog/types';
+
 import { RootState } from '.';
 
-const categoriesAdapter = createEntityAdapter<CategoryType, string>({
+const categoriesAdapter = createEntityAdapter<Category, string>({
   selectId: (category) => category.id,
 });
 
@@ -54,6 +55,6 @@ export const selectCategoriesStatus = createSelector(
 export const selectCategoryByName = createSelector(
   (state: RootState) => selectAllCategories(state),
   (_, categoryName) => categoryName,
-  (state: CategoryType[], categoryName: string) =>
+  (state: Category[], categoryName: string) =>
     state.find((category) => category.name === categoryName)
 );

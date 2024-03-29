@@ -1,19 +1,19 @@
 import {
-  Field,
-  Input,
   Combobox,
-  Option,
+  Field,
   FieldProps,
+  Input,
   InputProps,
+  Option,
 } from '@fluentui/react-components';
 import { ProductFieldOption, ProductFieldType } from '@mono-catalog/types';
 import {
-  Controller,
   Control,
+  Controller,
   FieldValues,
-  UseFormRegisterReturn,
   Path,
   RegisterOptions,
+  UseFormRegisterReturn,
 } from 'react-hook-form';
 
 interface ProductFormProps<TForm extends FieldValues> extends FieldProps {
@@ -50,7 +50,7 @@ function ProductFormField<TForm extends FieldValues>({
             className={className}
             validationMessage={validationMessage}
           >
-            <Input {...inputProps} {...field} />
+            <Input {...inputProps} {...field} value={field.value || ''} />
           </Field>
         )}
       />
@@ -69,7 +69,12 @@ function ProductFormField<TForm extends FieldValues>({
             className={className}
             validationMessage={validationMessage}
           >
-            <Input type="number" {...inputProps} {...field} />
+            <Input
+              type="number"
+              {...inputProps}
+              {...field}
+              value={field.value || ''}
+            />
           </Field>
         )}
       />

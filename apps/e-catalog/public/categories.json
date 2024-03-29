@@ -2,6 +2,7 @@
   {
     "id": "1",
     "name": "phone",
+    "title": "Phones",
     "fields": [
       {
         "name": "screenSize",
@@ -23,10 +24,12 @@
   },
   {
     "id": "2",
-    "name": "tv"
+    "name": "tv",
+    "title": "TVs"
   },
   {
     "id": "3",
-    "name": "computer"
+    "name": "computer",
+    "title": "Computers"
   }
 ]

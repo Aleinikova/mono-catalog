@@ -1,16 +1,17 @@
-import { useEffect, useMemo } from 'react';
-
 import {
-  makeStyles,
+  Button,
+  Combobox,
   Field,
   Input,
-  Combobox,
   Option,
-  Button,
+  makeStyles,
+  mergeClasses,
   tokens,
 } from '@fluentui/react-components';
-import { CategoryType, ProductType } from '@mono-catalog/types';
+import { Category, Product } from '@mono-catalog/types';
+import { useEffect, useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+
 import ProductFormField from './productFormField';
 
 const useStyles = makeStyles({
@@ -27,15 +28,17 @@ const useStyles = makeStyles({
 });
 
 interface ProductFormProps {
-  categories: CategoryType[];
-  defaultValues?: ProductType;
-  onSubmit: (product: ProductType) => void;
+  categories: Category[];
+  defaultValues?: Product;
+  className?: string;
+  onSubmit: (product: Product) => void;
 }
 
 export function ProductForm({
   categories,
   defaultValues,
   onSubmit,
+  className,
 }: ProductFormProps) {
   const styles = useStyles();
 
@@ -45,7 +48,7 @@ export function ProductForm({
     watch,
     reset,
     formState: { errors },
-  } = useForm<ProductType>({
+  } = useForm<Product>({
     defaultValues: defaultValues || {
       categoryId: undefined,
       name: '',
@@ -55,12 +58,6 @@ export function ProductForm({
     },
   });
 
-  useEffect(() => {
-    if (defaultValues) {
-      reset(defaultValues);
-    }
-  }, [defaultValues, reset]);
-
   const categoryId = watch('categoryId');
 
   const category = useMemo(
@@ -68,17 +65,26 @@ export function ProductForm({
     [categories, categoryId]
   );
 
-  const handleSubmitClick = async (values: ProductType) => {
+  useEffect(() => {
+    if (defaultValues) {
+      reset(defaultValues);
+    }
+  }, [defaultValues, reset]);
+
+  const handleSubmitClick = async (values: Product) => {
     await onSubmit({
       ...values,
       inventory: +values.inventory,
-      currency: 'USD',
+      currency: 'CHF',
     });
     reset();
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(handleSubmitClick)}>
+    <form
+      className={mergeClasses(styles.form, className)}
+      onSubmit={handleSubmit(handleSubmitClick)}
+    >
       <Controller
         name="categoryId"
         control={control}

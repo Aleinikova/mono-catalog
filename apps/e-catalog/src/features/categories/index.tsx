@@ -1,7 +1,8 @@
-import { makeStyles, shorthands, Spinner } from '@fluentui/react-components';
+import { Spinner, makeStyles, mergeClasses } from '@fluentui/react-components';
 import { Categories } from '@mono-catalog/categories';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { AppDispatch } from '../../store';
 import {
   getCategories,
@@ -10,28 +11,17 @@ import {
 } from '../../store/categoriesStore';
 
 const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-    display: 'grid',
-    gridTemplateColumns: 'repeat(12, 1fr)',
-    gridTemplateRows: '1fr',
-    gridColumnGap: '32px',
-    gridRowGap: '0px',
-  },
-  categories: {
-    ...shorthands.gridArea(1, 1, 1, 4),
-  },
-  main: {
-    display: 'flex',
-    flexDirection: 'column',
-    ...shorthands.gridArea(1, 4, 1, 13),
-  },
+  categories: {},
   spinner: {
     height: '100%',
   },
 });
 
-function Homepage() {
+interface CategoriesContainerProps {
+  className?: string;
+}
+
+function CategoriesContainer({ className }: CategoriesContainerProps) {
   const styles = useStyles();
 
   const dispatch: AppDispatch = useDispatch();
@@ -48,10 +38,14 @@ function Homepage() {
     <>
       {isLoading && <Spinner className={styles.spinner} />}
       {!isLoading && (
-        <Categories categories={categories} className={styles.categories} />
+        <Categories
+          categories={categories}
+          className={mergeClasses(styles.categories, className)}
+          linkFormatter={(link) => `/${link}`}
+        />
       )}
     </>
   );
 }
 
-export default Homepage;
+export default CategoriesContainer;
