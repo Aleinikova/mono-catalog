@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     display: 'grid',
     gridTemplateColumns: 'repeat(12, 1fr)',
     gridTemplateRows: '1fr',
-    gridColumnGap: '32px',
+    gridColumnGap: tokens.spacingHorizontalXXXL,
     gridRowGap: '0px',
   },
   photo: {
@@ -34,6 +34,7 @@ const useStyles = makeStyles({
   },
   img: {
     width: '100%',
+    maxHeight: '300px',
     objectFit: 'contain',
   },
   info: {
@@ -74,8 +75,8 @@ const useStyles = makeStyles({
     display: 'grid',
     gridTemplateColumns: 'repeat(12, 1fr)',
     gridTemplateRows: '2fr',
-    gridColumnGap: '32px',
-    gridRowGap: '16px',
+    gridColumnGap: tokens.spacingHorizontalXXXL,
+    gridRowGap: tokens.spacingVerticalL,
     ...shorthands.gridArea(1, 6, 1, 13),
   },
   button: {

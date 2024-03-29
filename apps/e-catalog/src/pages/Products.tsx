@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     display: 'grid',
     gridTemplateColumns: 'repeat(12, 1fr)',
     gridTemplateRows: '1fr',
-    gridColumnGap: '32px',
+    gridColumnGap: tokens.spacingHorizontalXXXL,
     gridRowGap: '0px',
   },
   categories: {

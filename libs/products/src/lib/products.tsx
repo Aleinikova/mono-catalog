@@ -1,4 +1,4 @@
-import { makeStyles, mergeClasses } from '@fluentui/react-components';
+import { makeStyles, mergeClasses, tokens } from '@fluentui/react-components';
 import { Action, Product } from '@mono-catalog/types';
 
 import { ProductCard } from './productCard';
@@ -7,8 +7,8 @@ const useStyles = makeStyles({
   list: {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-    gridColumnGap: '16px',
-    gridRowGap: '16px',
+    gridColumnGap: tokens.spacingHorizontalL,
+    gridRowGap: tokens.spacingVerticalL,
   },
   listItem: {
     listStyleType: 'none',

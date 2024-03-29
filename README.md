@@ -16,7 +16,7 @@
 
 ## Structure
 
-Folder apps contains projects of mono repository. Folder libs contains components, utils, hook and types, which can be used by projects
+Folder `/apps` contains projects of mono repository. Folder `/libs` contains components, utils, hook and types, which can be used by projects
 
 - To create new app run `npx nx g @nx/react:app [project-name] --directory=apps/[project-name]`
 - To create new library run `npx nx g @nx/react:library [lib-name] --directory=libs/[lib-name] --unitTestRunner=jest --bundler=none`
