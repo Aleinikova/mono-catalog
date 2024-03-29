@@ -26,6 +26,8 @@ Folder `/apps` contains projects of mono repository. Folder `/libs` contains com
 - Run `npm install`
 - Run `npx nx serve [project-name]` to start the application
 
+Application should be open on `https` otherwise `officeatwork` iframe wouldn't work
+
 ## Start e-catalog locally
 
 - Run `npm install`
