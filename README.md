@@ -41,7 +41,6 @@ Run all test suites
 
 ```
 npx nx run-many --all --target=test
-
 ```
 
 To execute tasks with Nx use the following syntax:
