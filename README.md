@@ -2,7 +2,7 @@
 
 ## About
 
-A website for managing a list of Electronic Products.
+- e-catalog project is website for managing a list of Electronic Products.
 
 ## Technologies
 
