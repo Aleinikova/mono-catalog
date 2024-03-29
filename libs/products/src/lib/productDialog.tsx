@@ -1,4 +1,5 @@
 import {
+  Dialog,
   DialogBody,
   DialogContent,
   DialogSurface,
@@ -20,6 +21,8 @@ interface ProductDialogProps {
   onSubmit: (product: Product) => void;
   defaultValues?: Product;
   className?: string;
+  open: boolean;
+  toggleOpen: (isOpen: boolean) => void;
 }
 
 export function ProductDialog({
@@ -27,23 +30,27 @@ export function ProductDialog({
   categories,
   defaultValues,
   className,
+  open,
+  toggleOpen,
   onSubmit,
 }: ProductDialogProps) {
   const styles = useStyles();
 
   return (
-    <DialogSurface className={mergeClasses(styles.root, className)}>
-      <DialogBody>
-        <DialogTitle>{title || 'Add new product'}</DialogTitle>
-        <DialogContent>
-          <ProductForm
-            categories={categories}
-            onSubmit={onSubmit}
-            defaultValues={defaultValues}
-          />
-        </DialogContent>
-      </DialogBody>
-    </DialogSurface>
+    <Dialog open={open} onOpenChange={(_, data) => toggleOpen(data.open)}>
+      <DialogSurface className={mergeClasses(styles.root, className)}>
+        <DialogBody>
+          <DialogTitle>{title || 'Add new product'}</DialogTitle>
+          <DialogContent>
+            <ProductForm
+              categories={categories}
+              onSubmit={onSubmit}
+              defaultValues={defaultValues}
+            />
+          </DialogContent>
+        </DialogBody>
+      </DialogSurface>
+    </Dialog>
   );
 }
 

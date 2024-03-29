@@ -20,12 +20,9 @@ exports[`Products should match snapshot 1`] = `
         onClick={[Function]}
         onContextMenu={[Function]}
         onKeyDown={[Function]}
-        onKeyUp={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         onMouseMove={[Function]}
-        role="button"
-        tabIndex={0}
         type="button"
       >
         <svg
@@ -49,6 +46,7 @@ exports[`Products should match snapshot 1`] = `
         <img
           alt="Preview of a Word document: About Us - Overview"
           className="___1we4501_0000000 f1kle4es"
+          onError={[Function]}
           src="https://www.freeiconspng.com/thumbs/iphone-x-pictures/apple-iphone-x-pictures-5.png"
         />
       </div>
@@ -91,12 +89,9 @@ exports[`Products should match snapshot 1`] = `
         onClick={[Function]}
         onContextMenu={[Function]}
         onKeyDown={[Function]}
-        onKeyUp={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         onMouseMove={[Function]}
-        role="button"
-        tabIndex={0}
         type="button"
       >
         <svg
@@ -120,6 +115,7 @@ exports[`Products should match snapshot 1`] = `
         <img
           alt="Preview of a Word document: About Us - Overview"
           className="___1we4501_0000000 f1kle4es"
+          onError={[Function]}
           src="https://images.samsung.com/is/image/samsung/latin-en-uhdtv-nu7100-un50nu7100pxpa-frontblack-121432508?$650_519_PNG$"
         />
       </div>
@@ -162,12 +158,9 @@ exports[`Products should match snapshot 1`] = `
         onClick={[Function]}
         onContextMenu={[Function]}
         onKeyDown={[Function]}
-        onKeyUp={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         onMouseMove={[Function]}
-        role="button"
-        tabIndex={0}
         type="button"
       >
         <svg
@@ -191,6 +184,7 @@ exports[`Products should match snapshot 1`] = `
         <img
           alt="Preview of a Word document: About Us - Overview"
           className="___1we4501_0000000 f1kle4es"
+          onError={[Function]}
           src="https://i.pinimg.com/originals/3e/7b/90/3e7b90192ec52d66d07dd209e3373985.png"
         />
       </div>

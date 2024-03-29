@@ -1,7 +1,12 @@
-import { makeStyles, shorthands, tokens } from '@fluentui/react-components';
+import {
+  makeStyles,
+  shorthands,
+  tokens,
+  typographyStyles,
+} from '@fluentui/react-components';
 import { Footer } from '@mono-catalog/footer';
 import { Header } from '@mono-catalog/header';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 import AddProductButtonContainer from '../features/products/AddProductButtonContainer';
 
@@ -17,6 +22,13 @@ const useStyles = makeStyles({
     flexGrow: 1,
     ...shorthands.margin(tokens.spacingVerticalXXL),
   },
+  logo: {
+    ...typographyStyles.title3,
+    color: tokens.colorCompoundBrandBackground,
+  },
+  link: {
+    textDecorationLine: 'none',
+  },
 });
 
 interface MainLayoutProps {
@@ -28,7 +40,13 @@ function MainLayout({ children }: MainLayoutProps) {
 
   return (
     <div className={styles.root}>
-      <Header logo="E-Catalog">
+      <Header
+        Logo={() => (
+          <Link className={styles.link} to="/">
+            <div className={styles.logo}>E-catalog</div>
+          </Link>
+        )}
+      >
         <AddProductButtonContainer />
       </Header>
       <div className={styles.main}>

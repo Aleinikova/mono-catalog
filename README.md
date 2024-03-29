@@ -9,7 +9,10 @@
 - React
 - Redux-toolkit
 - React-hook-form
+- TypeScript
+- Fluent UI React v9
 - Nx
+- Vite
 
 ## Structure
 
@@ -33,6 +36,13 @@ Folder apps contains projects of mono repository. Folder libs contains component
 Run `npx nx build [project-name]` to build the application. The build artifacts are stored in the output directory (e.g. `dist/` or `build/`), ready to be deployed.
 
 ## Running tasks
+
+Run all test suites
+
+```
+npx nx run-many --all --target=test
+
+```
 
 To execute tasks with Nx use the following syntax:
 

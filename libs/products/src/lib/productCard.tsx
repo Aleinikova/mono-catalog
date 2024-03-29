@@ -9,8 +9,12 @@ import {
 } from '@fluentui/react-components';
 import { currencyFormatter } from '@mono-catalog/currency-formatter';
 import { Action, Product } from '@mono-catalog/types';
+import { useState } from 'react';
 
 import ProductMenu from './productMenu';
+
+const DEFAULT_IMG_SRC =
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png';
 
 const useStyles = makeStyles({
   card: {},
@@ -53,6 +57,7 @@ export interface ProductProps {
 }
 
 export function ProductCard({ product, actions, className }: ProductProps) {
+  const [imageSrc, setImageSrc] = useState(product.imageUrl || DEFAULT_IMG_SRC);
   const styles = useStyles();
 
   return (
@@ -68,11 +73,9 @@ export function ProductCard({ product, actions, className }: ProductProps) {
       <CardPreview className={styles.preview}>
         <img
           className={styles.img}
-          src={
-            product.imageUrl ||
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'
-          }
+          src={imageSrc}
           alt="Preview of a Word document: About Us - Overview"
+          onError={() => setImageSrc(DEFAULT_IMG_SRC)}
         />
       </CardPreview>
       <div className={styles.row}>

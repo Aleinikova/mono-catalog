@@ -1,5 +1,4 @@
 import {
-  Dialog,
   Spinner,
   Toast,
   ToastTitle,
@@ -100,6 +99,8 @@ function ProductsContainer({ category }: ProductsContainerProps) {
       </Toast>,
       { intent: 'success' }
     );
+
+    setOpen(false);
   };
 
   return (
@@ -109,14 +110,14 @@ function ProductsContainer({ category }: ProductsContainerProps) {
         <Products products={products} actions={actions} LinkComponent={Link} />
       )}
 
-      <Dialog open={open} onOpenChange={(_, data) => setOpen(data.open)}>
-        <ProductDialog
-          defaultValues={productToEdit}
-          categories={categories}
-          onSubmit={handleProductEdit}
-          title="Edit product"
-        />
-      </Dialog>
+      <ProductDialog
+        defaultValues={productToEdit}
+        categories={categories}
+        onSubmit={handleProductEdit}
+        title="Edit product"
+        open={open}
+        toggleOpen={setOpen}
+      />
 
       <Toaster toasterId={toasterId} />
     </>

@@ -14,12 +14,9 @@ exports[`Product should match snapshot 1`] = `
     onClick={[Function]}
     onContextMenu={[Function]}
     onKeyDown={[Function]}
-    onKeyUp={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     onMouseMove={[Function]}
-    role="button"
-    tabIndex={0}
     type="button"
   >
     <svg
@@ -43,6 +40,7 @@ exports[`Product should match snapshot 1`] = `
     <img
       alt="Preview of a Word document: About Us - Overview"
       className="___1we4501_0000000 f1kle4es"
+      onError={[Function]}
       src="https://www.freeiconspng.com/thumbs/iphone-x-pictures/apple-iphone-x-pictures-5.png"
     />
   </div>

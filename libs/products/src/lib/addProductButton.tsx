@@ -1,10 +1,6 @@
-import {
-  Button,
-  Dialog,
-  DialogTrigger,
-  mergeClasses,
-} from '@fluentui/react-components';
+import { Button, mergeClasses } from '@fluentui/react-components';
 import { Category, Product } from '@mono-catalog/types';
+import { useCallback, useState } from 'react';
 
 import ProductDialog from './productDialog';
 
@@ -19,15 +15,37 @@ export function AddProductButton({
   categories,
   onSubmit,
 }: ProductButtonProps) {
+  const [open, setOpen] = useState(false);
+
+  const openDialog = useCallback(() => {
+    setOpen(true);
+  }, []);
+
+  const handleSubmit = useCallback(
+    (data: Product) => {
+      onSubmit(data);
+      setOpen(false);
+    },
+    [onSubmit]
+  );
+
   return (
-    <Dialog>
-      <DialogTrigger>
-        <Button className={mergeClasses(className)} appearance="primary">
-          Add Product
-        </Button>
-      </DialogTrigger>
-      <ProductDialog categories={categories} onSubmit={onSubmit} />
-    </Dialog>
+    <>
+      <Button
+        className={mergeClasses(className)}
+        appearance="primary"
+        onClick={openDialog}
+      >
+        Add Product
+      </Button>
+
+      <ProductDialog
+        categories={categories}
+        onSubmit={handleSubmit}
+        open={open}
+        toggleOpen={setOpen}
+      />
+    </>
   );
 }
 

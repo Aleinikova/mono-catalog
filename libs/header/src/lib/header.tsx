@@ -3,9 +3,7 @@ import {
   mergeClasses,
   shorthands,
   tokens,
-  typographyStyles,
 } from '@fluentui/react-components';
-import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -14,29 +12,20 @@ const useStyles = makeStyles({
     ...shorthands.padding(tokens.spacingVerticalXXL),
     backgroundColor: tokens.colorNeutralBackground1,
   },
-  logo: {
-    ...typographyStyles.title3,
-    color: tokens.colorCompoundBrandBackground,
-  },
-  link: {
-    textDecorationLine: 'none',
-  },
 });
 
 export interface HeaderProps {
-  logo: string;
+  Logo: JSX.ElementType;
   children?: React.ReactNode;
   className?: string;
 }
 
-export function Header({ logo, children, className }: HeaderProps) {
+export function Header({ Logo, children, className }: HeaderProps) {
   const styles = useStyles();
 
   return (
     <header className={mergeClasses(styles.root, className)}>
-      <Link className={styles.link} to="/">
-        <div className={styles.logo}>{logo}</div>
-      </Link>
+      <Logo />
       {children}
     </header>
   );

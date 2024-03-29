@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should match snapshot 1`] = `
+<div
+  className="___1bkntep_dss79n0 f22iagw f1vx9l62 f1ggmyuv fsjp82u fz66xbh f1nochiw fjf0vx2 fbhi9bo f1xcmy3i"
+>
+  <span
+    className="fui-Text ___1yy3miz_151ruo0 fk6fouc f1x0m3f5 fb86gi6 fl43uef fpgzoln f1w7gpdv f6juhto f1mtd64y f1y7q3j9 f2jf649"
+  >
+    test
+  </span>
+  <div
+    aria-orientation="horizontal"
+    className="fui-Divider ___voyzy90_7lxtmz0 f122n59 f1ewtqcl f22iagw f1063pyq f1jhi6b8 f10pi13n fk6fouc fy9rknc figsok6 fwrc4pm f17mccla fyl8oag f16vkdww fhsnbul f1gw3sf2 f1ly5f7u f1s3tz6t f1wl9k8s f13zj6fq fkfq4zb f1vccso1 f1geml7w f1r7kh1m fjml6kk f16j7guv fx01ahm fl8d8yv fj1a37q fly5x3f f163fonl f51yk4v f13rof3u f8rth92 f6czdpx f1iyka9k fzynn9s fekrn8e f1kyqvp9 fesgyo fgr6219 fqcjy3b"
+    role="separator"
+  />
+  <span
+    className="fui-Text ___11i3m3i_pylq3q0 fk6fouc fy9rknc fwrc4pm figsok6 fpgzoln f1w7gpdv f6juhto f1mtd64y f1y7q3j9 f2jf649 fcgxt0o f1ujusj6 fp25eh"
+  >
+    © 2024 made by Waleria Mogilewicz
+  </span>
+</div>
+`;
