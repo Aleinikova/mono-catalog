@@ -8,7 +8,7 @@ import { persistor, store } from '../store/index';
 
 export function App() {
   return (
-    <ErrorBoundary FallbackComponent={() => <div>Upps...</div>}>
+    <ErrorBoundary FallbackComponent={() => <div>Upps... Something went wrong</div>}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <FluentProvider theme={webLightTheme} style={{ height: '100%' }}>
